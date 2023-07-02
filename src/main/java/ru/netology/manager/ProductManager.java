@@ -18,7 +18,7 @@ public class ProductManager {
         Product[] result = new Product[0];
 
         for (Product product: repository.findAll()) {
-            if (matches(product, text)) {
+            if (product.matches(text)) {
                 // "добавляем в конец" массива result продукт product
                 Product[] tmp = new Product[result.length + 1];
                 System.arraycopy(result, 0, tmp, 0, result.length);
@@ -28,9 +28,5 @@ public class ProductManager {
         }
 
         return result;
-    }
-
-    public boolean matches(Product product, String search) {
-        return product.getName().contains(search);
     }
 }
