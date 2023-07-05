@@ -1,4 +1,4 @@
-package ru.netology.repository.manager;
+package ru.netology.manager;
 
 import org.junit.jupiter.api.Test;
 import ru.netology.domain.Book;
@@ -22,6 +22,13 @@ public class ProductManagerTest {
         productManager.add(product2);
         productManager.add(book1);
         productManager.add(smartphone1);
+    }
+
+    @Test
+    public void shouldFindFindNothing() {
+        Product[] expected = new Product[]{};
+        Product[] actual = productManager.searchBy("ProductNothing");
+        assertArrayEquals(expected, actual);
     }
 
     @Test
